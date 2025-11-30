@@ -1,5 +1,4 @@
 
-
 #Find and return a pair of integers in a sorted list (all integers are positive) that
 #when summed up, bring you the closest to the value of k
 #Example Input: [5, 8, 14, 17, 25]
