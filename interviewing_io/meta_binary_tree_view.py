@@ -10,7 +10,6 @@
 # Right View: [1, 3]
 # Output: [5, 4, 2, 1, 3]
 
-top_part = type(int) #bu tepedeki eleman olsun.
 left_view = [] #soldaki taraf
 right_view = [] #sağdaki taraf
 binary_tree = []
@@ -30,7 +29,7 @@ print(left_view) #test
 print(right_view) #test
 
 if left_view[-1] == right_view[0]:
-    top_part = left_view[-1]
+    top_part = left_view[-1] #kökümüz
 print(top_part) #test
 
 binary_tree = left_view + right_view
