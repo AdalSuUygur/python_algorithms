@@ -28,3 +28,16 @@ for i in range(len(nums)):
             if hesaplanan_numara == target:
                 print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
                 exit()
+
+#leetcode sayfasında fonksiyon olarak yazdığım çözüm: 
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         for i in range(len(nums)):
+#             for j in range (len(nums)):
+#                 if i == j:
+#                     continue #önemsiz bulduk
+#                 else:
+#                     hesaplanan_numara = nums[i] + nums[j]
+#                     if hesaplanan_numara == target:
+#                         print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
+#                         return [i,j]
