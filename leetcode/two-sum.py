@@ -14,3 +14,17 @@
 # Example 3:
 # Input: nums = [3,3], target = 6
 # Output: [0,1]
+
+nums = [3,2,4]
+target = 6
+hesaplanan_numara = 0
+
+for i in range(len(nums)):
+    for j in range (len(nums)):
+        if i == j:
+            continue #önemsiz bulduk
+        else:
+            hesaplanan_numara = nums[i] + nums[j]
+            if hesaplanan_numara == target:
+                print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
+                exit()
