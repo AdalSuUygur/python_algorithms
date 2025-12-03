@@ -1,4 +1,3 @@
-
 # Given an integer array nums sorted in non-decreasing order, 
 # remove the duplicates in-place such that each unique element appears only once. 
 # The relative order of the elements should be kept the same.
@@ -52,3 +51,26 @@ for i in range(k, len(nums)):
 # print(nums) #test
 
 print(f"{k}, nums = {nums}")
+
+
+#leetcode çözümü
+# class Solution:
+#     def removeDuplicates(self, nums: List[int]) -> int:
+#         k = 1 #kaç tane unique sayı var bunu tutan değişken, 0. indexteki değer her türlü unique diye varsayarak 1den başlatıyoruz.
+
+#         j = 0 #bir sonraki adımdaki değerden farklıysa, j. indexteki değeri farklı olan sayıyla değiştirmemizi sağlayan counter
+#         for i in range(1, len(nums)):
+#             if nums[i] == nums[i-1]: #bir önceki indexteki değerle eşit mi
+#                 continue
+#             else: #değilse
+#                 k += 1 #unique counterı 1 artır
+#                 j += 1 #index değişmesini 1 artır
+#                 nums[j] = nums[i] #indexteki değeri değiştirdik
+#         # print(k) #test
+#         # print(nums) #test
+
+#         for i in range(k, len(nums)):
+#             nums[i] = "_"
+#         # print(nums) #test
+
+#         return k
