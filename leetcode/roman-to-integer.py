@@ -38,3 +38,15 @@
 # Input: s = "MCMXCIV"
 # Output: 1994
 # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+s = ["I", "V", "X", "L", "C", "D", "M"] #input sadece bunlar olabilir.
+
+1 <= s.length <= 15
+#It is guaranteed that s is a valid roman numeral in the range [1, 3999].
+
+# aklıma gelen senaryo şu:
+# 6 tane öncelikli maddeyi belirlemek lazım
+# gelen inputu string olarak alıp her bir karakteri item olarak lsiteye ekleyip 
+# gelenlere bakarak karar vermek lazım
+# ama işte roman rakamlarını da bilmem lazım :D kafam karıştı
+# ondan şimdilik geçtim
