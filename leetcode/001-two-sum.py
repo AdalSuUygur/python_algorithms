@@ -18,44 +18,33 @@
 #region Second try with Big-o-notation knowledge:
 #? Sözlüklere giriş
 
-nums = [2,7,11,15]
-target = 9
-num_map = {} #sözlük tanımlama syntaxi
+# nums = [2,7,11,15]
+# target = 9
+# num_map = {} #sözlük tanımlama syntaxi
 
-for i in range(len(nums)):
-    tamamlayici = target - nums[i]
-    if tamamlayici in num_map:
-        return num_map[tamamlayici], i
-    else:
-        num_map[nums[i]] = i
-
-#endregion
-
-# for num in nums: #her elemanı geziyoruz
-#     if num in seen: #eğer görüldüyse daha önce
-#         return True #direkt döngüden çıktık ve true döndürdük
-#     else: #yok anam daha görmediysek
-#         seen.add(num) #ekledik kümeye
-# return False #bu da döngüdeki tüm elemanlar bittikten sonra
-#endregion
-
+# for i in range(len(nums)):
+#     tamamlayici = target - nums[i]
+#     if tamamlayici in num_map:
+#         return num_map[tamamlayici], i
+#     else:
+#         num_map[nums[i]] = i
 
 #endregion
 
 #region first try
-# nums = [3,2,4]
-# target = 6
-# hesaplanan_numara = 0
+nums = [3,2,4]
+target = 6
+hesaplanan_numara = 0
 
-# for i in range(len(nums)):
-#     for j in range (len(nums)):
-#         if i == j:
-#             continue #önemsiz bulduk
-#         else:
-#             hesaplanan_numara = nums[i] + nums[j]
-#             if hesaplanan_numara == target:
-#                 print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
-#                 exit()
+for i in range(len(nums)):
+    for j in range (len(nums)):
+        if i == j:
+            continue #önemsiz bulduk
+        else:
+            hesaplanan_numara = nums[i] + nums[j]
+            if hesaplanan_numara == target:
+                print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
+                exit()
 #endregion
 
 #region leetcode sayfasında fonksiyon olarak yazdığım çözüm: 
