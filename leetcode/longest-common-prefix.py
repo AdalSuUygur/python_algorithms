@@ -51,5 +51,3 @@ for i in range(len(kontrol)):
 # o zaman en kısa kelimenin (kontrol) tamamı ortaktır.
 print(kontrol)
 #bunu yaptım ama gemini yardımıyla, tekrar üstünden gitmem ŞART
-
-
