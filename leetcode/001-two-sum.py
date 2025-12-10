@@ -15,36 +15,28 @@
 # Input: nums = [3,3], target = 6
 # Output: [0,1]
 
-#region Second try with Big-o-notation knowledge:
-#? Sözlüklere giriş
+#region with Big-o-notation knowledge:
+#* Sözlük bilgisi gerektiği için pass şimdilik
+nums = [2,7,11,15]
+target = 9
 
-# nums = [2,7,11,15]
-# target = 9
-# num_map = {} #sözlük tanımlama syntaxi
-
-# for i in range(len(nums)):
-#     tamamlayici = target - nums[i]
-#     if tamamlayici in num_map:
-#         return num_map[tamamlayici], i
-#     else:
-#         num_map[nums[i]] = i
 
 #endregion
 
 #region first try
-nums = [3,2,4]
-target = 6
-hesaplanan_numara = 0
+# nums = [3,2,4]
+# target = 6
+# hesaplanan_numara = 0
 
-for i in range(len(nums)):
-    for j in range (len(nums)):
-        if i == j:
-            continue #önemsiz bulduk
-        else:
-            hesaplanan_numara = nums[i] + nums[j]
-            if hesaplanan_numara == target:
-                print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
-                exit()
+# for i in range(len(nums)):
+#     for j in range (len(nums)):
+#         if i == j:
+#             continue #önemsiz bulduk
+#         else:
+#             hesaplanan_numara = nums[i] + nums[j]
+#             if hesaplanan_numara == target:
+#                 print(f"Because nums[{i}] + nums[{j}] == {hesaplanan_numara}, we return [{i},{j}]")
+#                 exit()
 #endregion
 
 #region leetcode sayfasında fonksiyon olarak yazdığım çözüm: 
