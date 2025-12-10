@@ -38,15 +38,30 @@
 # Input: s = "MCMXCIV"
 # Output: 1994
 # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+#burda nasıl düşünüyorum?
+#en önce en büyük sayı var yani M = 1000
+#sonra C var, C = 100
+#C'den sonra, C'den daha büyük olan bir değer var M = 1000; bu durumda C'yi çıkartıcaz, 1000-100
+#CM olunca 900 oldu çünkü C M'den daha küçük ve önüne yazılmış çıkartma anlamı taşıyor.
+#1000 + (-100+1000) = 1900 oldu
+#X var, X = 10, sonra C var, x < c olduğu için; -10+100 yani 90
+# 1900 + (-10 +100) = 1990
+#I var yani 1, sonra V var yani 5 i < v olduğu için çıkartıyoruz -1 + 5 = 4
+# 1990 + (-1+5) = 1994
 
-s = ["I", "V", "X", "L", "C", "D", "M"] #input sadece bunlar olabilir.
 
-1 <= s.length <= 15
-#It is guaranteed that s is a valid roman numeral in the range [1, 3999].
+#en küçükten başlayarak var olan karakterleri listeye ekleyelim, index değeri büyük olan büyük değeri karşılasın
+#veya, zip ile 2 liste birleştirebiliriz, harf ve karşılığı listeleri, deneyelim.
 
-# aklıma gelen senaryo şu:
-# 6 tane öncelikli maddeyi belirlemek lazım
-# gelen inputu string olarak alıp her bir karakteri item olarak lsiteye ekleyip 
-# gelenlere bakarak karar vermek lazım
-# ama işte roman rakamlarını da bilmem lazım :D kafam karıştı
-# ondan şimdilik geçtim
+# s = ["I", "V", "X", "L", "C", "D", "M"] #input sadece bunlar olabilir.
+number_equalities = [1, 5, 10, 50, 100, 500, 1000]
+character_equalities = ["I", "V", "X", "L", "C", "D", "M"]
+print(list( #burası test
+    zip(character_equalities, number_equalities #burda 0.eleman character'i 1. eleman sayısal değerini ifade ediyor.
+        )))
+
+# s = "III"
+# for char in s: #gelen input içerisindeki her elemanı geziyorum
+#     char = #character_equalities listesinde var mı diye bakmak lazım.
+
+#burda tıkandım, geminiden yardım istedim ve ziplenmiş değerleri sözlüğe çevirmem gerektiğini söyledi. sözlük konusunu henüz bilmediğim için pass.
