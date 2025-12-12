@@ -49,8 +49,12 @@ elif len(b) < len(a):
 # result_int = (int(x) + int(y) if int(x) + int(y) < 2 else 10 for x,y in zip(a,b)) #yanlış çalışıyor ama bi kalsın
 # print(list(result_int))
 
-print(a[::-1]) # bu da ters çeviriyor ama yapamadım
+# print(a[::-1]) # bu da ters çeviriyor ama yapamadım
 
+for i in range(-1, -len(a)-1, -1):
+    #int(a[i]) + int(b[i]) ikisini toplayınca değer 2 olursa bunu diğer adıma taşı işlemini yapamıyorum. yorgunlukta nda olabilir.
+    print(f"a için İndeks: {i}, Değer: {a[i]}")
+    print(f"b için İndeks: {i}, Değer: {b[i]}")
 
 
 #ters çevir #basamaklar için, indexlerini eşitlicez aslında, 0. index 0. basamak olcak ve 0 + 0 0. basamak olarak kalcak
