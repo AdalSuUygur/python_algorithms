@@ -13,7 +13,7 @@
 a = "1011"
 b = "1"
 
-#deneme2 - 2'lik sistemde toplamaları tersten yapmaya çalışıyorum
+#region deneme2 - 2'lik sistemde toplamaları tersten yapmaya çalışıyorum
 
 #1. adım: string nesnelerini ters çevir.
 # reversed(a)
@@ -39,49 +39,71 @@ b = "1"
 
 #* 0 zaman 0. adım geliyor, o da string ifadeye 0 eklemek ama başına eklemek, ki bu noktada da nasıl başına ekleyeceğimi bilmiyorum.
 #* gemini yardımıyla basamakları eşitledik :D zfill FTW
-if len(a) < len(b):
-    a = a.zfill(len(b))
-elif len(b) < len(a):
-    b = b.zfill(len(a))
 
-#Burdaki adımda, index değeri -1'den başlamam gerek ve -2, -3 olarak ilerlemem gerek, neden? çünkü basamaklar en sağdan başlıyor ve sola doğru ilerliyor.
-
-# result_int = (int(x) + int(y) if int(x) + int(y) < 2 else 10 for x,y in zip(a,b)) #yanlış çalışıyor ama bi kalsın
-# print(list(result_int))
-
-# print(a[::-1]) # bu da ters çeviriyor ama yapamadım
+#artık a_str ve b_str olarak iki stringimiz var eşit uzunlukta, -1. indexinden başlayarak toplamam lazım.
+carry = 0
+number_str = ""
 
 for i in range(-1, -len(a)-1, -1):
-    #int(a[i]) + int(b[i]) ikisini toplayınca değer 2 olursa bunu diğer adıma taşı işlemini yapamıyorum. yorgunlukta nda olabilir.
-    print(f"a için İndeks: {i}, Değer: {a[i]}")
-    print(f"b için İndeks: {i}, Değer: {b[i]}")
+    basamak_degeri = int(a_str[i]) + int(b_str[i]) + carry # bu değerin toplamı 2den büyükse:
+    #int(a[i]) + int(b[i]) ikisini toplayınca değer 2 olursa bunu diğer adıma taşı
+    if basamak_degeri >= 2:
+        carry = 1
+    else:
+        carry = 0 #carry'e 0 atadık ki sonraki adımda patlamayalım
 
+    number_str += str(basamak_degeri%2)  #burda tersten yazdırıyor
+    print(number_str)
+match carry:
+    case 1:
+        number_str += str(carry)
+    case 2:
+        number_str = "10" + number_str 
 
-#ters çevir #basamaklar için, indexlerini eşitlicez aslında, 0. index 0. basamak olcak ve 0 + 0 0. basamak olarak kalcak
-# if len(reversed(a)) != len(reversed(b)):
-#     pass #kısa olanı bul, bu bir edge case şimdilik siktir et
+result = reversed(number_str)
+print(result)
+#endregion
 
-#print(list(zip(reversed(a),reversed(b)))) #ters çevirdik, indexleri eşitledik aslında
+#region gemini çözümü
+# 1. Adım: String uzunluklarını eşitleme (zfill ile)
+max_len = max(len(a), len(b))
+a_str = a.zfill(max_len)
+b_str = b.zfill(max_len)
 
-# result_int = (int(x) + int(y) for x,y in zip(reversed(a),reversed(b))) #ters çevirdik, sonucu topladık.
-# #print(result_int)
-# #listedeki her itemı string olarak yazdırmak istiyorum: 
-# result_str = "".join(str(item) for item in result_int)
-# print(result_str)
+# 2. Adım: Sağdan Sola Toplama
+carry = 0
+result = []  # Basamakları doğru sırayla biriktirmek için liste kullanmak daha kolaydır
 
-#eğer 1+1 ise sonucu 0 yazdırıp bir sonraki indexe +1 değer gönderticez gibi bir şey deneyebiliriz?
+# range(max_len - 1, -1, -1) ile indexleri sağdan sola gezebiliriz (örneğin 3, 2, 1, 0)
+for i in range(max_len - 1, -1, -1):
+    # Basamak değerlerini integer'a çevir
+    digit_a = int(a_str[i])
+    digit_b = int(b_str[i])
 
-#hemen list built in func incelemesi xd
-#0. indexlerini topla (inte çevirip topla)
-#tekrar ters çevir ve stringe çevir
+    # Toplamı hesapla (iki basamak + elde)
+    total = digit_a + digit_b + carry
 
-# new_ls = result_str.replace("2","01")
-# print(new_ls)
-# result = "".join(reversed(new_ls))
-# print(result)
+    # Yeni basamak değeri (Toplamın 2'ye göre kalanı)
+    current_digit = total % 2
+    
+    # Yeni elde (Toplamın 2'ye bölümü)
+    carry = total // 2
 
+    # Yeni basamağı sonucun BAŞINA ekle.
+    # Alternatif olarak sona ekleyip sonra ters çevirebiliriz. (Burada sona ekleyelim, sonra ters çevirelim)
+    result.append(str(current_digit))
 
+# 3. Adım: Son Eldeyi Ekleme
+if carry == 1:
+    result.append("1")
 
+# 4. Adım: Sonucu ters çevirip string'e dönüştürme (çünkü basamakları tersten ekledik)
+final_sum = "".join(result[::-1]) 
+# Alternatif: final_sum = "".join(reversed(result))
+
+print(f"Input A: {a}, Input B: {b}")
+print(f"Output: {final_sum}")
+#endregion
 
 
 #deneme1 - 10'luk sisteme çevirip hesap yaptırıp tekrar 2liğe döndürmek istedim tıkandım.
